@@ -1,0 +1,246 @@
+
+/* Custom styles */
+:root {
+    --primary: #111;
+    --secondary: #333;
+    --accent: #d4af37;
+    --light: #f8f8f8;
+    --text: #333;
+    --text-light: #777;
+}
+
+@font-face {
+    font-family: 'Luthon';
+    src: url('../webfonts/Luthon Southard Serif.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background-color: var(--light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Luthon', 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+body strong,
+body b,
+body .font-bold,
+body .font-semibold,
+body .font-extrabold,
+body .font-black {
+    font-family: 'Luthon', 'Playfair Display', serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+/* Professional spacing with responsive adjustments */
+section {
+    padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 6rem 0;
+    }
+}
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content,
+.hero-actions {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.word-stack {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 0.35rem;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.rotating-word {
+    display: inline-block;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #b8860b, #f6d365, #d4af37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #d4af37;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.08em;
+    text-align: center;
+}
+
+.rotating-word.is-anim {
+    animation: wordSwap 0.5s ease;
+}
+
+.word-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #b8860b, #f6d365, #d4af37);
+    margin-top: 0.35rem;
+    border-radius: 999px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography enhancements */
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+/* Portfolio styles with responsive images */
+.portfolio-item {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .portfolio-item img {
+        height: 200px;
+    }
+}
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.08);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+/* Custom form focus styles */
+input, textarea, select {
+    transition: all 0.3s ease;
+    border-radius: 0;
+    border: 1px solid #ddd;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Social icon hover effect */
+.social-icon {
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.1);
+    background-color: var(--accent) !important;
+    color: white !important;
+}
+
+/* Elegant divider */
+.divider {
+    height: 1px;
+    width: 140px;
+    background-color: var(--accent);
+    margin: 2rem auto;
+}
+
+@keyframes wordSwap {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rotating-word.is-anim {
+        animation: none;
+    }
+}
+
+/* Testimonial styling */
+.testimonial {
+    position: relative;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.testimonial:before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(212, 175, 55, 0.1);
+    font-family: 'Playfair Display', serif;
+}
