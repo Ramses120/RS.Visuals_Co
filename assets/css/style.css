@@ -70,7 +70,7 @@ section {
 
 
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 5.2rem);
+    font-size: clamp(3.2rem, 7vw, 6.4rem);
     line-height: 1.05;
 }
 
@@ -94,7 +94,7 @@ section {
 
 .rotating-word {
     display: inline-block;
-    font-size: 1.15em;
+    font-size: 1.45em;
     line-height: 1.2;
     font-family: 'Ephesis', cursive;
     font-style: italic;
@@ -161,7 +161,7 @@ p {
 
 /* Portfolio styles with responsive images */
 .portfolio-item {
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
@@ -170,7 +170,6 @@ p {
     width: 100%;
     height: auto;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -180,12 +179,7 @@ p {
 }
 
 .portfolio-item:hover {
-    transform: translateY(-8px);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.05);
 }
 
 /* Custom form focus styles */
@@ -301,7 +295,7 @@ select:focus {
 /* Hero responsive tweaks */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: clamp(2.2rem, 7vw, 3.6rem);
+        font-size: clamp(2.8rem, 8vw, 4.4rem);
     }
 }
 
@@ -312,6 +306,7 @@ select:focus {
 
     .rotating-word {
         min-width: 0 !important;
-        font-size: 1em;
+        font-size: 1.9em;
+        line-height: 1.05;
     }
 }
