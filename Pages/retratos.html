@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retratos | RS.Visual_Co</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --retratos-ink: #0f172a;
+            --retratos-accent: #6dd5c2;
+            --retratos-soft: #f3f7f6;
+            --retratos-dark: #0a1b21;
+        }
+
+        body.page-retratos {
+            background: radial-gradient(circle at top, #f7fbff, #eef3f4 45%, #e4ecec 100%);
+            color: var(--retratos-ink);
+        }
+
+        .gallery-section {
+            margin-top: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            font-size: 0.75rem;
+            color: rgba(15, 23, 42, 0.75);
+            margin-bottom: 1.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: rgba(15, 23, 42, 1);
+        }
+
+        .section-eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+            color: rgba(15, 23, 42, 0.6);
+            margin-bottom: 0.75rem;
+        }
+
+        .gallery-grid {
+            columns: 3;
+            column-gap: 1.5rem;
+            column-fill: balance;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            padding: 0;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            break-inside: avoid;
+            border-radius: 0;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 18px 32px rgba(15, 23, 42, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: driftDown var(--drift-duration, 22s) ease-in-out infinite;
+            animation-delay: var(--drift-delay, 0s);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+            animation-play-state: paused;
+        }
+
+
+        .gallery-hint {
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            color: rgba(15, 23, 42, 0.65);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+            z-index: 2000;
+        }
+
+        .lightbox.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-card {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            max-width: none;
+            width: auto;
+            box-shadow: none;
+        }
+
+        .lightbox-card img {
+            width: auto;
+            height: auto;
+            max-width: 92vw;
+            max-height: 90vh;
+            border-radius: 0;
+            display: block;
+        }
+
+        .lightbox-close {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.75rem;
+            border: 1px solid rgba(15, 23, 42, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .lightbox-open {
+            overflow: hidden;
+        }
+
+        @keyframes driftDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(16px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                columns: 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .gallery-grid {
+                columns: 2;
+                column-gap: 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .gallery-grid {
+                columns: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gallery-item {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-retratos">
+    <custom-navbar></custom-navbar>
+
+    <main class="container mx-auto px-4 pt-6 pb-12">
+        <a href="../index.html#portfolio" class="back-link">
+            <i data-feather="arrow-left"></i>
+            Atras
+        </a>
+        <section id="galeria" class="gallery-section">
+            <div class="max-w-3xl">
+                <p class="section-eyebrow">Galeria</p>
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Retratos</h2>
+            </div>
+
+            <div class="gallery-grid" aria-label="Galeria de retratos en movimiento">
+                <button type="button" class="gallery-item" style="--drift-duration: 26s; --drift-delay: -6s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/1.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/1.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 22s; --drift-delay: -12s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/2.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/2.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 24s; --drift-delay: -8s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/3.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/3.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 20s; --drift-delay: -4s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/5.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/5.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 28s; --drift-delay: -10s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/6.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/6.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 18s; --drift-delay: -6s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/7.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/7.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 30s; --drift-delay: -10s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/8.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/8.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 22s; --drift-delay: -8s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/9.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/9.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 24s; --drift-delay: -12s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/10.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/10.jpg" alt="Retratos" loading="lazy">
+                </button>
+                <button type="button" class="gallery-item" style="--drift-duration: 26s; --drift-delay: -6s;"
+                    data-gallery-item data-full="../assets/images/Portafolio/Retratos/11.jpg">
+                    <img src="../assets/images/Portafolio/Retratos/11.jpg" alt="Retratos" loading="lazy">
+                </button>
+
+
+
+
+            </div>
+</section>
+    </main>
+
+    <div class="lightbox" data-lightbox>
+        <div class="lightbox-card">
+            <img src="" alt="Retrato ampliado" data-lightbox-image>
+            <button type="button" class="lightbox-close" data-lightbox-close>
+                <i data-feather="x"></i>
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <div class="page-copy">copyright rs.visuals_co</div>
+
+    <custom-footer></custom-footer>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.querySelector('[data-lightbox]');
+            const lightboxImg = document.querySelector('[data-lightbox-image]');
+            const closeBtn = document.querySelector('[data-lightbox-close]');
+            const body = document.body;
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('is-open');
+                body.classList.remove('lightbox-open');
+                lightboxImg.src = '';
+                lightboxImg.alt = 'Retrato ampliado';
+            };
+
+            const openLightbox = (src) => {
+                lightboxImg.src = src;
+                lightbox.classList.add('is-open');
+                body.classList.add('lightbox-open');
+            };
+
+            document.querySelectorAll('[data-gallery-item]').forEach((item) => {
+                item.addEventListener('click', () => {
+                    openLightbox(item.dataset.full);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

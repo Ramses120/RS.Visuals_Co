@@ -98,10 +98,10 @@ class CustomFooter extends HTMLElement {
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>RS.Visuals_co </h3>
-                    <p>Servicios de fotografia y video  para toda ocasión. Capturando momentos que duran toda la vida.</p>
+                    <p>Servicios de fotografia y video  para toda ocasion. Capturando momentos que duran toda la vida.</p>
 </div>
 <div class="footer-section">
-                    <h3>Sígueme</h3>
+                    <h3>Sigueme</h3>
 <div class="social-links">
                         <a href="https://instagram.com" target="_blank" aria-label="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
