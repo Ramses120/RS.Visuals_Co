@@ -4,6 +4,9 @@ class CustomNavbar extends HTMLElement {
         const isSubpage = path.includes('/pages/');
         const assetPrefix = isSubpage ? '../' : '';
         const logoSrc = `${assetPrefix}assets/images/logo.png`;
+        const logoBase = logoSrc.replace(/\.png$/i, '');
+        const logoAvif = `${logoBase}.avif`;
+        const logoWebp = `${logoBase}.webp`;
         const homeHref = `${assetPrefix}index.html`;
 
         this.attachShadow({ mode: 'open' });
@@ -110,7 +113,11 @@ class CustomNavbar extends HTMLElement {
             
             <nav>
                 <a href="${homeHref}" class="logo" aria-label="Inicio">
-                    <img src="${logoSrc}" alt="RS Visuals logo">
+                    <picture>
+                        <source type="image/avif" srcset="${logoAvif}">
+                        <source type="image/webp" srcset="${logoWebp}">
+                        <img src="${logoSrc}" alt="RS Visuals logo">
+                    </picture>
                 </a>
                 <button class="mobile-menu-btn">
                     <i data-feather="menu"></i>

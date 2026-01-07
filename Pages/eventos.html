@@ -216,7 +216,11 @@
 
     <div class="lightbox" data-lightbox>
         <div class="lightbox-card">
-            <img src="" alt="Retrato ampliado" data-lightbox-image>
+            <picture class="lightbox-media" data-lightbox-media>
+                <source type="image/avif" data-lightbox-source-avif>
+                <source type="image/webp" data-lightbox-source-webp>
+                <img src="" alt="Retrato ampliado" data-lightbox-image>
+            </picture>
             <button type="button" class="lightbox-close" data-lightbox-close>
                 <i data-feather="x"></i>
                 Cerrar
@@ -235,6 +239,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const lightbox = document.querySelector('[data-lightbox]');
             const lightboxImg = document.querySelector('[data-lightbox-image]');
+            const lightboxSourceAvif = document.querySelector('[data-lightbox-source-avif]');
+            const lightboxSourceWebp = document.querySelector('[data-lightbox-source-webp]');
             const closeBtn = document.querySelector('[data-lightbox-close]');
             const body = document.body;
 
@@ -243,9 +249,28 @@
                 body.classList.remove('lightbox-open');
                 lightboxImg.src = '';
                 lightboxImg.alt = 'Retrato ampliado';
+                if (lightboxSourceAvif) {
+                    lightboxSourceAvif.removeAttribute('srcset');
+                }
+                if (lightboxSourceWebp) {
+                    lightboxSourceWebp.removeAttribute('srcset');
+                }
             };
 
             const openLightbox = (src) => {
+                const match = src.match(/\.(png|jpe?g)$/i);
+                if (match && lightboxSourceAvif && lightboxSourceWebp) {
+                    const base = src.replace(/\.(png|jpe?g)$/i, '');
+                    lightboxSourceAvif.srcset = `${base}.avif`;
+                    lightboxSourceWebp.srcset = `${base}.webp`;
+                } else {
+                    if (lightboxSourceAvif) {
+                        lightboxSourceAvif.removeAttribute('srcset');
+                    }
+                    if (lightboxSourceWebp) {
+                        lightboxSourceWebp.removeAttribute('srcset');
+                    }
+                }
                 lightboxImg.src = src;
                 lightbox.classList.add('is-open');
                 body.classList.add('lightbox-open');

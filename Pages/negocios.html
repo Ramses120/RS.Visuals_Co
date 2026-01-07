@@ -232,11 +232,19 @@
             <div class="gallery-grid" aria-label="Galeria de negocios en movimiento">
                 <button type="button" class="gallery-item" style="--drift-duration: 26s; --drift-delay: -6s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/1.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/1.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/1.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/1.webp">
+                        <img src="../assets/images/Portafolio/Negocio/1.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 22s; --drift-delay: -12s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/2.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/2.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/2.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/2.webp">
+                        <img src="../assets/images/Portafolio/Negocio/2.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <div class="gallery-item gallery-video">
                     <video autoplay loop muted playsinline preload="auto">
@@ -245,23 +253,43 @@
                 </div>
 <button type="button" class="gallery-item" style="--drift-duration: 24s; --drift-delay: -8s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/3.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/3.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/3.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/3.webp">
+                        <img src="../assets/images/Portafolio/Negocio/3.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 20s; --drift-delay: -4s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/4.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/4.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/4.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/4.webp">
+                        <img src="../assets/images/Portafolio/Negocio/4.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 28s; --drift-delay: -10s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/5.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/5.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/5.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/5.webp">
+                        <img src="../assets/images/Portafolio/Negocio/5.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 18s; --drift-delay: -6s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/6.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/6.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/6.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/6.webp">
+                        <img src="../assets/images/Portafolio/Negocio/6.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 26s; --drift-delay: -14s;"
                     data-gallery-item data-full="../assets/images/Portafolio/Negocio/7.jpg">
-                    <img src="../assets/images/Portafolio/Negocio/7.jpg" alt="Negocios" loading="lazy">
+                    <picture>
+                        <source type="image/avif" srcset="../assets/images/Portafolio/Negocio/7.avif">
+                        <source type="image/webp" srcset="../assets/images/Portafolio/Negocio/7.webp">
+                        <img src="../assets/images/Portafolio/Negocio/7.jpg" alt="Negocios" loading="lazy">
+                    </picture>
                 </button>
             </div>
         </section>
@@ -269,7 +297,11 @@
 
     <div class="lightbox" data-lightbox>
         <div class="lightbox-card">
-            <img src="" alt="Retrato ampliado" data-lightbox-image>
+            <picture class="lightbox-media" data-lightbox-media>
+                <source type="image/avif" data-lightbox-source-avif>
+                <source type="image/webp" data-lightbox-source-webp>
+                <img src="" alt="Retrato ampliado" data-lightbox-image>
+            </picture>
             <button type="button" class="lightbox-close" data-lightbox-close>
                 <i data-feather="x"></i>
                 Cerrar
@@ -288,6 +320,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const lightbox = document.querySelector('[data-lightbox]');
             const lightboxImg = document.querySelector('[data-lightbox-image]');
+            const lightboxSourceAvif = document.querySelector('[data-lightbox-source-avif]');
+            const lightboxSourceWebp = document.querySelector('[data-lightbox-source-webp]');
             const closeBtn = document.querySelector('[data-lightbox-close]');
             const body = document.body;
 
@@ -296,9 +330,28 @@
                 body.classList.remove('lightbox-open');
                 lightboxImg.src = '';
                 lightboxImg.alt = 'Retrato ampliado';
+                if (lightboxSourceAvif) {
+                    lightboxSourceAvif.removeAttribute('srcset');
+                }
+                if (lightboxSourceWebp) {
+                    lightboxSourceWebp.removeAttribute('srcset');
+                }
             };
 
             const openLightbox = (src) => {
+                const match = src.match(/\.(png|jpe?g)$/i);
+                if (match && lightboxSourceAvif && lightboxSourceWebp) {
+                    const base = src.replace(/\.(png|jpe?g)$/i, '');
+                    lightboxSourceAvif.srcset = `${base}.avif`;
+                    lightboxSourceWebp.srcset = `${base}.webp`;
+                } else {
+                    if (lightboxSourceAvif) {
+                        lightboxSourceAvif.removeAttribute('srcset');
+                    }
+                    if (lightboxSourceWebp) {
+                        lightboxSourceWebp.removeAttribute('srcset');
+                    }
+                }
                 lightboxImg.src = src;
                 lightbox.classList.add('is-open');
                 body.classList.add('lightbox-open');
