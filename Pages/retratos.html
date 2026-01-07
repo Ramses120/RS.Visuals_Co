@@ -184,17 +184,14 @@
         @media (max-width: 640px) {
             .gallery-grid {
                 columns: 2;
-                column-gap: 1rem;
+                column-gap: 0.8rem;
+            }
+
+            .gallery-item {
+                margin-bottom: 0.8rem;
             }
         }
-
-        @media (max-width: 420px) {
-            .gallery-grid {
-                columns: 1;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
             .gallery-item {
                 animation: none;
             }
