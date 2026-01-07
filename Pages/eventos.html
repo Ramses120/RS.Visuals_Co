@@ -258,9 +258,9 @@
             };
 
             const openLightbox = (src) => {
-                const match = src.match(/\.(png|jpe?g)$/i);
+                const match = src.match(/\.(png|jpe?g|webp|avif)$/i);
                 if (match && lightboxSourceAvif && lightboxSourceWebp) {
-                    const base = src.replace(/\.(png|jpe?g)$/i, '');
+                    const base = src.replace(/\.(png|jpe?g|webp|avif)$/i, '');
                     lightboxSourceAvif.srcset = `${base}.avif`;
                     lightboxSourceWebp.srcset = `${base}.webp`;
                 } else {

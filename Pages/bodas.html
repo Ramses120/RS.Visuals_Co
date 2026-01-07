@@ -211,51 +211,51 @@
 
             <div class="gallery-grid" aria-label="Galeria de bodas en movimiento">
                 <button type="button" class="gallery-item" style="--drift-duration: 26s; --drift-delay: -6s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/1.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/1.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/1.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/1.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/1.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/1.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 22s; --drift-delay: -12s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/2.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/2.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/2.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/2.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/2.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/2.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 24s; --drift-delay: -8s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/3.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/3.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/3.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/3.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/3.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/3.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 20s; --drift-delay: -4s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/4.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/4.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/4.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/4.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/4.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/4.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 28s; --drift-delay: -10s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/5.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/5.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/5.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/5.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/5.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/5.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
                 <button type="button" class="gallery-item" style="--drift-duration: 18s; --drift-delay: -6s;"
-                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/6.jpg">
+                    data-gallery-item data-full="../assets/images/Portafolio/Bodas/Imagen/6.webp">
                     <picture>
                         <source type="image/avif" srcset="../assets/images/Portafolio/Bodas/Imagen/6.avif">
                         <source type="image/webp" srcset="../assets/images/Portafolio/Bodas/Imagen/6.webp">
-                        <img src="../assets/images/Portafolio/Bodas/Imagen/6.jpg" alt="Bodas" loading="lazy">
+                        <img src="../assets/images/Portafolio/Bodas/Imagen/6.webp" alt="Bodas" loading="lazy">
                     </picture>
                 </button>
 
@@ -307,9 +307,9 @@
             };
 
             const openLightbox = (src) => {
-                const match = src.match(/\.(png|jpe?g)$/i);
+                const match = src.match(/\.(png|jpe?g|webp|avif)$/i);
                 if (match && lightboxSourceAvif && lightboxSourceWebp) {
-                    const base = src.replace(/\.(png|jpe?g)$/i, '');
+                    const base = src.replace(/\.(png|jpe?g|webp|avif)$/i, '');
                     lightboxSourceAvif.srcset = `${base}.avif`;
                     lightboxSourceWebp.srcset = `${base}.webp`;
                 } else {
